@@ -20,7 +20,7 @@ const navigation = useNavigation();
         <TextInput placeholder="Insira sua senha" className="border-black border-2 w-60 rounded-md p-1"></TextInput>
       </View>
       <View className="flex w-60 mt-4">
-        <Button title="Logar"></Button>
+        <Button title="Logar" onPress={() => navigation.navigate('ListaScreen')}></Button>
       </View>
       <View className="flex w-60 my-4">
         <Button title="Cadastre-se" onPress={() => navigation.navigate('Cadastro')}></Button>
