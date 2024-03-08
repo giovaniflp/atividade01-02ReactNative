@@ -9,7 +9,7 @@ export default function ListaScreen(){
     
     const FetchApi = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/listaContatos');
+            const response = await axios.get('http://192.168.16.4:3000/listaContatos');
             setContatos(response.data);
         } catch (error) {
             console.error(error);
