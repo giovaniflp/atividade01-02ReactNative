@@ -35,7 +35,9 @@ export default function ListaScreen(){
                     <TouchableOpacity key={index} onPress={() => navigation.navigate('ModifyContatosScreen',
                     {
                         nome: contato.nome,
-                        numero: contato.telefone
+                        telefone: contato.telefone,
+                        email: contato.email,
+                        id: contato.id
                     }
                     )}>
                         <View className="flex flex-row bg-green-500 justify-center items-center border-b-2 p-2">
