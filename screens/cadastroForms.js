@@ -5,9 +5,9 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function CadastroForms(){
 
-    const [name, setName] = useState()
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
     const registerApi = async () => {
         await axios.post("http://localhost:3000/users", {
