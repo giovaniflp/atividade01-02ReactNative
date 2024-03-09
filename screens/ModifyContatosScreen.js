@@ -10,7 +10,7 @@ export default function ModifyContatosScreen({route}){
     const email = route.params.email;
 
     const removeApi = async () => {
-        await axios.delete("http://192.168.16.4:3000/listaContatos/" + id);
+        await axios.delete("http://localhost:3000/listaContatos/" + id);
         alert("Contato removido com sucesso!");
     }
 
@@ -19,7 +19,7 @@ export default function ModifyContatosScreen({route}){
     const [emailInput, setEmailInput] = useState(email);
 
     const patchApi = async () => {
-        await axios.patch("http://192.168.16.4:3000/listaContatos/" + id,{
+        await axios.patch("http://locahost:3000/listaContatos/" + id,{
             nome: nomeInput,
             telefone: telefoneInput,
             email: emailInput
