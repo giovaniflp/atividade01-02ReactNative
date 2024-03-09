@@ -9,7 +9,7 @@ export default function CadastroContatoScreen(){
     const [telefone, setTelefone] = useState('');
 
     const PostApi = async () => {
-        await axios.post("http://locahost:3000/listaContatos", {
+        await axios.post("http://192.168.16.4:3000/listaContatos", {
             nome: nome,
             email: email,
             telefone: telefone

@@ -1,28 +1,48 @@
 {
-    "users": [{
-            "id": "1",
-            "name": "giovani",
-            "password": "giovani",
-            "email": "giovanifeitosa123@gmail.com"
-        },
-        {
-            "id": "2",
-            "name": "admin",
-            "password": "admin",
-            "email": "admin@admin.com"
-        }
-    ],
-    "listaContatos": [{
-            "id": "1",
-            "nome": "Cleiton",
-            "telefone": "81 99999-9999",
-            "email": ""
-        },
-        {
-            "id": "2",
-            "nome": "Giovani",
-            "telefone": "81 99460-6666",
-            "email": "gio@email.com"
-        }
-    ]
+  "users": [
+    {
+      "id": "1",
+      "name": "giovani",
+      "password": "giovani",
+      "email": "giovanifeitosa123@gmail.com"
+    },
+    {
+      "id": "2",
+      "name": "admin",
+      "password": "admin",
+      "email": "admin@admin.com"
+    },
+    {
+      "id": "ef5a",
+      "name": "Admin",
+      "email": "admin@admin",
+      "password": "admin"
+    },
+    {
+      "id": "7210",
+      "name": "admin",
+      "email": "admin@admin",
+      "password": "admin"
+    }
+  ],
+  "listaContatos": [
+    {
+      "id": "1",
+      "nome": "Cleiton",
+      "telefone": "81 99999-9999",
+      "email": "cleiton@email"
+    },
+    {
+      "id": "2",
+      "nome": "Giovani",
+      "telefone": "81 99460-6666",
+      "email": "gio@email.com"
+    },
+    {
+      "id": "1985",
+      "nome": "nilson",
+      "email": "nilson@email.com",
+      "telefone": "123456789"
+    }
+  ]
 }

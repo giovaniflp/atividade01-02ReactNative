@@ -10,7 +10,7 @@ export default function CadastroForms(){
     const [password, setPassword] = useState("")
 
     const registerApi = async () => {
-        await axios.post("http://localhost:3000/users", {
+        await axios.post("http://192.168.16.4:3000/users", {
             name: name,
             email: email,
             password: password
@@ -36,6 +36,8 @@ export default function CadastroForms(){
             </View>
             <View className="flex w-60 my-4">
                 <Button title="Cadastrar" onPress={registerApi}></Button>
+            </View>
+            <View className="flex w-60">
                 <Button title="Voltar" onPress={() => navigation.navigate('Login')}></Button>
             </View>
         </View>
