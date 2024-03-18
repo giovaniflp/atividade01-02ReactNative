@@ -2,29 +2,31 @@ import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Button, Image, Text, TextInput, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import axios from 'axios'
+
+import app from '../firebase/firebaseConfig';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default function LoginForms() {
   
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  
+  const auth = getAuth(app);
+  
+  const login = async () => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      alert('Logado com sucesso')
+      navigation.navigate('ListaScreen');
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode, errorMessage);
+      // Handle errors appropriately, e.g., display an error message to the user
+    }
+  }
 
   const navigation = useNavigation();
-
-  const login = async () =>{
-  
-      const login = await axios.get("http://192.168.16.4:3000/users",{
-        email: email,
-        password: password,
-      }).then(response=>{
-        const auth = response.data
-        console.log(auth)
-        if(auth){
-          navigation.navigate('ListaScreen')
-        }
-      })
-    }
-  
 
   return (
     <View className="flex justify-center items-center h-screen w-screen bg-white">

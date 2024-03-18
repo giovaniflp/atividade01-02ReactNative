@@ -3,13 +3,27 @@ import { useNavigation } from '@react-navigation/native';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import { getAuth, signOut } from "firebase/auth";
+import app from "../firebase/firebaseConfig";
+
 export default function ListaScreen(){
 
     const [contatos, setContatos] = useState([]);
+
+    const auth = getAuth(app);
+    const logout = async () => {
+        try {
+            await signOut(auth);
+            alert('Deslogado com sucesso');
+            navigation.navigate('Login');
+        } catch (error) {
+            console.error(error);
+        }
+    }
     
     const FetchApi = async () => {
         try {
-            const response = await axios.get('http://192.168.16.4:3000/listaContatos');
+            const response = await axios.get('http://192.168.16.5:3000/listaContatos');
             setContatos(response.data);
         } catch (error) {
             console.error(error);
@@ -50,6 +64,11 @@ export default function ListaScreen(){
                         </View>
                     </TouchableOpacity>
                 ))}
+            </View>
+            <View className="flex items-center">
+                <TouchableOpacity className="flex items-center bg-red-500 w-40 p-2 rounded-lg mt-10" onPress={logout}>
+                    <Text>Deslogar</Text>
+                </TouchableOpacity>
             </View>
         </View>
     )

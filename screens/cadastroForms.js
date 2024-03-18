@@ -3,19 +3,28 @@ import axios from 'axios'
 import { Button, Text, View, TextInput } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 
+import {  getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import app from '../firebase/firebaseConfig';
+
 export default function CadastroForms(){
 
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
-    const registerApi = async () => {
-        await axios.post("http://192.168.16.4:3000/users", {
-            name: name,
-            email: email,
-            password: password
-        })
-        alert("Cadastrado com sucesso")
+    const auth = getAuth(app);
+
+    const register = async () => {
+        try {
+            await createUserWithEmailAndPassword(auth, email, password);
+            alert('Conta Criada com sucesso')
+            navigation.navigate('Login');
+        } catch (error) {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode, errorMessage);
+            // Handle errors appropriately, e.g., display an error message to the user
+        }
     }
 
     const navigation = useNavigation();
@@ -35,7 +44,7 @@ export default function CadastroForms(){
                 <TextInput value={password} onChangeText={setPassword} placeholder="Insira sua senha" className="border-black border-2 w-60 rounded-md p-1"></TextInput>
             </View>
             <View className="flex w-60 my-4">
-                <Button title="Cadastrar" onPress={registerApi}></Button>
+                <Button title="Cadastrar" onPress={register}></Button>
             </View>
             <View className="flex w-60">
                 <Button title="Voltar" onPress={() => navigation.navigate('Login')}></Button>
