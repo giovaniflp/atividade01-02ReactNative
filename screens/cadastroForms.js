@@ -3,6 +3,9 @@ import { Button, Text, View, TextInput } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import axiosInstance from '../axiosConfig';
 
+import {  getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import app from '../firebase/firebaseConfig';
+
 export default function CadastroForms(){
 
     const [name, setName] = useState("")
@@ -35,7 +38,7 @@ export default function CadastroForms(){
                 <TextInput value={password} onChangeText={setPassword} placeholder="Insira sua senha" className="border-black border-2 w-60 rounded-md p-1"></TextInput>
             </View>
             <View className="flex w-60 my-4">
-                <Button title="Cadastrar" onPress={registerApi}></Button>
+                <Button title="Cadastrar" onPress={register}></Button>
             </View>
             <View className="flex w-60">
                 <Button title="Voltar" onPress={() => navigation.navigate('Login')}></Button>
