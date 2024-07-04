@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import axios from 'axios'
 import { Button, Text, View, TextInput } from "react-native";
 import { useNavigation } from '@react-navigation/native';
+import axiosInstance from '../axiosConfig';
 
 export default function CadastroForms(){
 
@@ -10,7 +10,7 @@ export default function CadastroForms(){
     const [password, setPassword] = useState("")
 
     const registerApi = async () => {
-        await axios.post("http://192.168.16.4:3000/users", {
+        await axiosInstance.post("/users", {
             name: name,
             email: email,
             password: password

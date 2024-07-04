@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Button, Image, Text, TextInput, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import axios from 'axios'
+import axiosInstance from '../axiosConfig';
 
 export default function LoginForms() {
   
@@ -13,7 +13,7 @@ export default function LoginForms() {
 
   const login = async () =>{
   
-      const login = await axios.get("http://192.168.16.4:3000/users",{
+      const login = await axiosInstance.get("/users",{
         email: email,
         password: password,
       }).then(response=>{

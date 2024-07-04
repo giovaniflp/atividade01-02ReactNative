@@ -1,6 +1,6 @@
 import { View, TouchableOpacity, Text, TextInput, } from "react-native";
 import {useState, useEffect} from 'react';
-import axios from 'axios';
+import axiosInstance from "../axiosConfig";
 
 export default function CadastroContatoScreen(){
 
@@ -9,7 +9,7 @@ export default function CadastroContatoScreen(){
     const [telefone, setTelefone] = useState('');
 
     const PostApi = async () => {
-        await axios.post("http://192.168.16.4:3000/listaContatos", {
+        await axiosInstance.post("/listaContatos", {
             nome: nome,
             email: email,
             telefone: telefone

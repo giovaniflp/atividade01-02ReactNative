@@ -2,6 +2,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import axiosInstance from "../axiosConfig";
 
 export default function ListaScreen(){
 
@@ -9,7 +10,7 @@ export default function ListaScreen(){
     
     const FetchApi = async () => {
         try {
-            const response = await axios.get('http://192.168.16.4:3000/listaContatos');
+            const response = await axiosInstance.get('/listaContatos');
             setContatos(response.data);
         } catch (error) {
             console.error(error);

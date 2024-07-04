@@ -23,6 +23,12 @@
       "name": "admin",
       "email": "admin@admin",
       "password": "admin"
+    },
+    {
+      "id": "21d2",
+      "name": "Giovani",
+      "email": "giovanifeitosa123@gmail.com",
+      "password": "giovani123"
     }
   ],
   "listaContatos": [
